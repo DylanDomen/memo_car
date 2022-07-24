@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "521495624291",
+    "project_id": "memo-car",
+    "storage_bucket": "memo-car.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521495624291:android:6d7a2546c36e31ab769656",
+        "android_client_info": {
+          "package_name": "com.example.verygoodcore.memo_car"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521495624291-rgaplnb9quurbrlml0qlf4jic0jamc86.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.verygoodcore.memo_car",
+            "certificate_hash": "9c3e771d3107b1d2d9557f96c2be6d075bf65d69"
+          }
+        },
+        {
+          "client_id": "521495624291-glqjtphirgekkpr1p3i4ptfg1ao507p2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgvHDciIrOzHjHl9zCjFSGDWZCVy_CR94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521495624291-glqjtphirgekkpr1p3i4ptfg1ao507p2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "521495624291-nhdh5c6il4sqb183t5k6l1irosrr156n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.verygoodcore.memo-car"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
