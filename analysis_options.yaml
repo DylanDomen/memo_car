@@ -1,4 +1,63 @@
 include: package:very_good_analysis/analysis_options.3.0.1.yaml
+
+analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: true
+  exclude:
+    - "example/**"
+    #    - "integration_test/**"
+    - "lib/generated/**"
+    - "build/**"
+    #    - "test/**"
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+  plugins:
+    - dart_code_metrics
 linter:
   rules:
     public_member_api_docs: false
+    sort_constructors_first: false
+    avoid_print: true
+    avoid_redundant_argument_values: false
+
+dart_code_metrics:
+  anti-patterns:
+    - long-method
+    - long-parameter-list
+  metrics:
+    cyclomatic-complexity: 6
+    maximum-nesting-level: 5
+    source-lines-of-code: 100
+  metrics-exclude:
+    - test/**
+    - lib/generated/**
+  rules:
+    - newline-before-return
+    - no-boolean-literal-compare
+    - no-empty-block
+    - prefer-trailing-comma
+    - prefer-conditional-expressions
+    - no-equal-then-else
+    - prefer-async-await
+    - avoid-missing-enum-constant-in-map
+    #    - avoid-ignoring-return-values
+    - avoid-global-state
+    #    - avoid-dynamic
+    #    - no-magic-number:
+    #        allowed: [0,1,2,3,4,5,6,7,8,9,10]
+    - prefer-first
+    - prefer-immediate-return
+    - prefer-last
+
+    - always-remove-listener
+    - avoid-border-all
+    - avoid-returning-widgets
+    - avoid-wrapping-in-padding
+    - prefer-const-border-radius
+    - prefer-extracting-callbacks
+    - prefer-single-widgets-per-file
+    - avoid-wrapping-in-padding
+
+  rules-exclude:
+    - lib/generated/**
