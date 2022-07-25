@@ -32,11 +32,11 @@ void main() {
   });
 
   test("Instanciation d'un mémo", () {
-    Memo memo = Memo(
+    final memo = Memo(
       uid: 'uid',
       nom: 'nom',
       notes: 'notes',
-      photos: [],
+      photos: const [],
       utilisateur: utilisateur,
     );
 
@@ -48,28 +48,28 @@ void main() {
   });
 
   test('copyWith', () {
-    Memo memo = Memo(
+    final memo = Memo(
       uid: 'uid',
       nom: 'nom',
       notes: 'notes',
-      photos: [],
+      photos: const [],
       utilisateur: utilisateur,
     );
 
     Utilisateur utilisateur2 = MockUtilisateur();
 
-    Memo memoCopy = memo.copyWith(
+    final memoCopy = memo.copyWith(
       uid: 'uidModif',
       nom: 'nomModif',
       notes: 'notesModif',
-      photos: ["modif"],
+      photos: ['modif'],
       utilisateur: utilisateur2,
     );
 
     expect(memoCopy.uid, 'uidModif');
     expect(memoCopy.nom, 'nomModif');
     expect(memoCopy.notes, 'notesModif');
-    expect(memoCopy.photos, ["modif"]);
+    expect(memoCopy.photos, ['modif']);
     expect(memoCopy.utilisateur, utilisateur2);
   });
 }

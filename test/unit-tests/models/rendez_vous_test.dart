@@ -21,7 +21,7 @@ void main() {
         lieu: 'lieu',
         notes: 'notes',
         date: DateTime(2022, 10, 25),
-        heure: TimeOfDay(hour: 10, minute: 0),
+        heure: const TimeOfDay(hour: 10, minute: 0),
         dateRappel: DateTime(2022, 10, 24),
         utilisateur: utilisateur,
       ),
@@ -31,7 +31,7 @@ void main() {
         lieu: 'lieu',
         notes: 'notes',
         date: DateTime(2022, 10, 25),
-        heure: TimeOfDay(hour: 10, minute: 0),
+        heure: const TimeOfDay(hour: 10, minute: 0),
         dateRappel: DateTime(2022, 10, 24),
         utilisateur: utilisateur,
       ),
@@ -39,13 +39,13 @@ void main() {
   });
 
   test("Instanciation d'un rendez-vous", () {
-    RendezVous rendezVous = RendezVous(
+    final rendezVous = RendezVous(
       uid: 'uid',
       nom: 'nom',
       lieu: 'lieu',
       notes: 'notes',
       date: DateTime(2022, 10, 25),
-      heure: TimeOfDay(hour: 10, minute: 0),
+      heure: const TimeOfDay(hour: 10, minute: 0),
       dateRappel: DateTime(2022, 10, 24),
       utilisateur: utilisateur,
     );
@@ -55,32 +55,32 @@ void main() {
     expect(rendezVous.lieu, 'lieu');
     expect(rendezVous.notes, 'notes');
     expect(rendezVous.date, DateTime(2022, 10, 25));
-    expect(rendezVous.heure, TimeOfDay(hour: 10, minute: 0));
+    expect(rendezVous.heure, const TimeOfDay(hour: 10, minute: 0));
     expect(rendezVous.dateRappel, DateTime(2022, 10, 24));
     expect(rendezVous.utilisateur, utilisateur);
   });
 
   test('copyWith', () {
-    RendezVous rendezVous = RendezVous(
+    final rendezVous = RendezVous(
       uid: 'uid',
       nom: 'nom',
       lieu: 'lieu',
       notes: 'notes',
       date: DateTime(2022, 10, 25),
-      heure: TimeOfDay(hour: 10, minute: 0),
+      heure: const TimeOfDay(hour: 10, minute: 0),
       dateRappel: DateTime(2022, 10, 24),
       utilisateur: utilisateur,
     );
 
-    Utilisateur utilisateur2 = MockUtilisateur();
+    final Utilisateur utilisateur2 = MockUtilisateur();
 
-    RendezVous rendezVousCopy = rendezVous.copyWith(
+    final rendezVousCopy = rendezVous.copyWith(
       uid: 'uidmodif',
       nom: 'nommodif',
       lieu: 'lieumodif',
       notes: 'notesmodif',
       date: DateTime(2022, 10, 26),
-      heure: TimeOfDay(hour: 12, minute: 0),
+      heure: const TimeOfDay(hour: 12, minute: 0),
       dateRappel: DateTime(2022, 10, 25),
       utilisateur: utilisateur2,
     );
@@ -90,7 +90,7 @@ void main() {
     expect(rendezVousCopy.lieu, 'lieumodif');
     expect(rendezVousCopy.notes, 'notesmodif');
     expect(rendezVousCopy.date, DateTime(2022, 10, 26));
-    expect(rendezVousCopy.heure, TimeOfDay(hour: 12, minute: 0));
+    expect(rendezVousCopy.heure, const TimeOfDay(hour: 12, minute: 0));
     expect(rendezVousCopy.dateRappel, DateTime(2022, 10, 25));
     expect(rendezVousCopy.utilisateur, utilisateur2);
   });

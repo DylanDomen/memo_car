@@ -1,17 +1,17 @@
 enum TypeRappel {
-  ControleTechnique,
-  Revision,
-  Distribution,
+  controleTechnique,
+  revision,
+  distribution,
 }
 
 extension TypeRappelTxt on TypeRappel {
   String get texte {
     switch (this) {
-      case TypeRappel.ControleTechnique:
+      case TypeRappel.controleTechnique:
         return 'Contrôle technique';
-      case TypeRappel.Revision:
+      case TypeRappel.revision:
         return 'Révision';
-      case TypeRappel.Distribution:
+      case TypeRappel.distribution:
         return 'Distribution';
     }
   }
