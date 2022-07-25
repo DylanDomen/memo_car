@@ -23,6 +23,28 @@ class RendezVous extends Equatable {
     required this.utilisateur,
   });
 
+  RendezVous copyWith({
+    String? uid,
+    String? nom,
+    String? lieu,
+    String? notes,
+    DateTime? date,
+    TimeOfDay? heure,
+    DateTime? dateRappel,
+    Utilisateur? utilisateur,
+  }) {
+    return RendezVous(
+      uid: uid ?? this.uid,
+      nom: nom ?? this.nom,
+      lieu: lieu ?? this.lieu,
+      notes: notes ?? this.notes,
+      date: date ?? this.date,
+      heure: heure ?? this.heure,
+      dateRappel: dateRappel ?? this.dateRappel,
+      utilisateur: utilisateur ?? this.utilisateur,
+    );
+  }
+
   @override
   List<Object?> get props => [
         uid,
