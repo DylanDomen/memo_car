@@ -5,9 +5,19 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'package:memo_car/app/app.dart';
-import 'package:memo_car/bootstrap.dart';
+import 'package:flutter/material.dart';
+import 'package:memo_car/app/view/app_page.dart';
 
 void main() {
-  bootstrap(() => const App());
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return const AppPage();
+  }
 }

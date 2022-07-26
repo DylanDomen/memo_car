@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:memo_car/models/rappel_vehicule.dart';
 import 'package:memo_car/models/utilisateur.dart';
 
+// ignore: must_be_immutable
 class Vehicule extends Equatable {
   String? uid;
   String nom;

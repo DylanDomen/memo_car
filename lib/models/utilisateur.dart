@@ -3,6 +3,7 @@ import 'package:memo_car/models/memo.dart';
 import 'package:memo_car/models/rendez_vous.dart';
 import 'package:memo_car/models/vehicule.dart';
 
+// ignore: must_be_immutable
 class Utilisateur extends Equatable {
   String? uid;
   String email;

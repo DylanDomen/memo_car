@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:memo_car/models/utilisateur.dart';
 
+// ignore: must_be_immutable
 class RendezVous extends Equatable {
   String? uid;
   String nom;

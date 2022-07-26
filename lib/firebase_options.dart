@@ -39,6 +39,7 @@ class DefaultFirebaseOptions {
           'DefaultFirebaseOptions have not been configured for linux - '
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
+      // ignore: no_default_cases
       default:
         throw UnsupportedError(
           'DefaultFirebaseOptions are not supported for this platform.',
@@ -69,8 +70,10 @@ class DefaultFirebaseOptions {
     messagingSenderId: '521495624291',
     projectId: 'memo-car',
     storageBucket: 'memo-car.appspot.com',
-    androidClientId: '521495624291-rgaplnb9quurbrlml0qlf4jic0jamc86.apps.googleusercontent.com',
-    iosClientId: '521495624291-nhdh5c6il4sqb183t5k6l1irosrr156n.apps.googleusercontent.com',
+    androidClientId:
+        '521495624291-rgaplnb9quurbrlml0qlf4jic0jamc86.apps.googleusercontent.com',
+    iosClientId:
+        '521495624291-nhdh5c6il4sqb183t5k6l1irosrr156n.apps.googleusercontent.com',
     iosBundleId: 'com.example.verygoodcore.memo-car',
   );
 }

@@ -18,14 +18,14 @@ void main() {
         uid: 'uid',
         nom: 'nom',
         notes: 'notes',
-        photos: ['XXX'],
+        photos: const ['XXX'],
         utilisateur: utilisateur,
       ),
       Memo(
         uid: 'uid',
         nom: 'nom',
         notes: 'notes',
-        photos: ['XXX'],
+        photos: const ['XXX'],
         utilisateur: utilisateur,
       ),
     );
