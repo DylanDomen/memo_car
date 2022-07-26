@@ -29,6 +29,35 @@ class Vehicule extends Equatable {
     required this.listRappel,
   });
 
+  Vehicule copyWith({
+    String? uid,
+    String? nom,
+    String? marque,
+    String? immatriculation,
+    int? km,
+    String? notes,
+    DateTime? dateControleTechnique,
+    DateTime? dateRevision,
+    DateTime? dateDistribution,
+    Utilisateur? utilisateur,
+    List<RappelVehicule>? listRappel,
+  }) {
+    return Vehicule(
+      uid: uid ?? this.uid,
+      nom: nom ?? this.nom,
+      marque: marque ?? this.marque,
+      immatriculation: immatriculation ?? this.immatriculation,
+      km: km ?? this.km,
+      notes: notes ?? this.notes,
+      dateControleTechnique:
+          dateControleTechnique ?? this.dateControleTechnique,
+      dateRevision: dateRevision ?? this.dateRevision,
+      dateDistribution: dateDistribution ?? this.dateDistribution,
+      utilisateur: utilisateur ?? this.utilisateur,
+      listRappel: listRappel ?? this.listRappel,
+    );
+  }
+
   @override
   List<Object?> get props => [
         uid,

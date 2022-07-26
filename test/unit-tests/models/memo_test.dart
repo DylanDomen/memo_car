@@ -18,14 +18,14 @@ void main() {
         uid: 'uid',
         nom: 'nom',
         notes: 'notes',
-        photos: [],
+        photos: ['XXX'],
         utilisateur: utilisateur,
       ),
       Memo(
         uid: 'uid',
         nom: 'nom',
         notes: 'notes',
-        photos: [],
+        photos: ['XXX'],
         utilisateur: utilisateur,
       ),
     );
@@ -36,14 +36,14 @@ void main() {
       uid: 'uid',
       nom: 'nom',
       notes: 'notes',
-      photos: const [],
+      photos: const ['XXX'],
       utilisateur: utilisateur,
     );
 
     expect(memo.uid, 'uid');
     expect(memo.nom, 'nom');
     expect(memo.notes, 'notes');
-    expect(memo.photos, []);
+    expect(memo.photos, ['XXX']);
     expect(memo.utilisateur, utilisateur);
   });
 
@@ -56,7 +56,7 @@ void main() {
       utilisateur: utilisateur,
     );
 
-    Utilisateur utilisateur2 = MockUtilisateur();
+    final utilisateur2 = MockUtilisateur();
 
     final memoCopy = memo.copyWith(
       uid: 'uidModif',
