@@ -4,12 +4,12 @@ import 'package:memo_car/models/vehicule.dart';
 
 // ignore: must_be_immutable
 class RappelVehicule extends Equatable {
-  String? uid;
-  DateTime dateRappel;
-  TypeRappel typeRappel;
-  Vehicule vehicule;
+  final String? uid;
+  final DateTime dateRappel;
+  final TypeRappel typeRappel;
+  final Vehicule vehicule;
 
-  RappelVehicule({
+  const RappelVehicule({
     this.uid,
     required this.dateRappel,
     required this.typeRappel,

@@ -25,6 +25,7 @@ void main() {
         marque: 'marque',
         immatriculation: 'immatriculation',
         km: 100000,
+        photo: 'xxx',
         notes: 'notes',
         dateControleTechnique: DateTime(2022, 10, 24),
         dateRevision: DateTime(2022, 10, 24),
@@ -38,6 +39,7 @@ void main() {
         marque: 'marque',
         immatriculation: 'immatriculation',
         km: 100000,
+        photo: 'xxx',
         notes: 'notes',
         dateControleTechnique: DateTime(2022, 10, 24),
         dateRevision: DateTime(2022, 10, 24),
@@ -55,6 +57,7 @@ void main() {
       marque: 'marque',
       immatriculation: 'immatriculation',
       km: 100000,
+      photo: 'xxx',
       notes: 'notes',
       dateControleTechnique: DateTime(2022, 10, 24),
       dateRevision: DateTime(2022, 10, 24),
@@ -68,6 +71,7 @@ void main() {
     expect(vehicule.marque, 'marque');
     expect(vehicule.immatriculation, 'immatriculation');
     expect(vehicule.km, 100000);
+    expect(vehicule.photo, 'xxx');
     expect(vehicule.notes, 'notes');
     expect(vehicule.dateControleTechnique, DateTime(2022, 10, 24));
     expect(vehicule.dateRevision, DateTime(2022, 10, 24));
@@ -83,6 +87,7 @@ void main() {
       marque: 'marque',
       immatriculation: 'immatriculation',
       km: 100000,
+      photo: 'xxx',
       notes: 'notes',
       dateControleTechnique: DateTime(2022, 10, 24),
       dateRevision: DateTime(2022, 10, 24),
@@ -100,6 +105,7 @@ void main() {
       marque: 'marquemodif',
       immatriculation: 'immatriculationmodif',
       km: 20000,
+      photo: 'xxxmodif',
       notes: 'notesmodif',
       dateControleTechnique: DateTime(2022, 10, 25),
       dateRevision: DateTime(2022, 10, 25),
@@ -113,6 +119,7 @@ void main() {
     expect(vehiculeCopy.marque, 'marquemodif');
     expect(vehiculeCopy.immatriculation, 'immatriculationmodif');
     expect(vehiculeCopy.km, 20000);
+    expect(vehiculeCopy.photo, 'xxxmodif');
     expect(vehiculeCopy.notes, 'notesmodif');
     expect(vehiculeCopy.dateControleTechnique, DateTime(2022, 10, 25));
     expect(vehiculeCopy.dateRevision, DateTime(2022, 10, 25));

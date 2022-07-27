@@ -9,6 +9,8 @@ environment:
 dependencies:
   bloc: ^8.0.3
   equatable: ^2.0.3
+  firebase_auth: ^3.5.1
+  firebase_auth_mocks: ^0.8.5+1
   firebase_core: ^1.20.0
   flow_builder: ^0.0.9
   flutter:
@@ -16,6 +18,8 @@ dependencies:
   flutter_bloc: ^8.0.1
   flutter_localizations:
     sdk: flutter
+  font_awesome_flutter: ^10.1.0
+  formz: ^0.4.1
   intl: ^0.17.0
 
 dev_dependencies:

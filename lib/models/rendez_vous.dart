@@ -4,16 +4,16 @@ import 'package:memo_car/models/utilisateur.dart';
 
 // ignore: must_be_immutable
 class RendezVous extends Equatable {
-  String? uid;
-  String nom;
-  String lieu;
-  String? notes;
-  DateTime date;
-  TimeOfDay heure;
-  DateTime? dateRappel;
-  Utilisateur utilisateur;
+  final String? uid;
+  final String nom;
+  final String lieu;
+  final String? notes;
+  final DateTime date;
+  final TimeOfDay heure;
+  final DateTime? dateRappel;
+  final Utilisateur utilisateur;
 
-  RendezVous({
+  const RendezVous({
     this.uid,
     required this.nom,
     required this.lieu,

@@ -5,14 +5,14 @@ import 'package:memo_car/models/vehicule.dart';
 
 // ignore: must_be_immutable
 class Utilisateur extends Equatable {
-  String? uid;
-  String email;
-  String? motDePasse;
-  List<Vehicule> listVehicule;
-  List<Memo> listMemo;
-  List<RendezVous> listRendezVous;
+  final String? uid;
+  final String email;
+  final String? motDePasse;
+  final List<Vehicule> listVehicule;
+  final List<Memo> listMemo;
+  final List<RendezVous> listRendezVous;
 
-  Utilisateur({
+  const Utilisateur({
     this.uid,
     required this.email,
     this.motDePasse,

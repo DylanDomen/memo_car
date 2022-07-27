@@ -3,13 +3,13 @@ import 'package:memo_car/models/utilisateur.dart';
 
 // ignore: must_be_immutable
 class Memo extends Equatable {
-  String? uid;
-  String nom;
-  String? notes;
-  List<String> photos;
-  Utilisateur utilisateur;
+  final String? uid;
+  final String nom;
+  final String? notes;
+  final List<String> photos;
+  final Utilisateur utilisateur;
 
-  Memo({
+  const Memo({
     this.uid,
     required this.nom,
     this.notes,

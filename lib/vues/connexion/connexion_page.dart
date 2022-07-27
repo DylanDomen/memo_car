@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:memo_car/models/authentification_repository.dart';
 import 'package:memo_car/vues/connexion/connexion_view.dart';
 import 'package:memo_car/vues/connexion/cubit/connexion_cubit.dart';
 
@@ -11,7 +12,9 @@ class ConnexionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ConnexionCubit(),
+      create: (context) => ConnexionCubit(
+        authentificationRepository: context.read<AuthentificationRepository>(),
+      ),
       child: const Scaffold(
         body: ConnexionView(),
       ),
