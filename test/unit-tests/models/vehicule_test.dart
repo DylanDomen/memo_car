@@ -11,10 +11,30 @@ class MockRappelVehicule extends Mock implements RappelVehicule {}
 void main() {
   late Utilisateur utilisateur;
   late RappelVehicule rappelVehicule;
+  late Utilisateur utilisateur2;
+  late RappelVehicule rappelVehicule2;
+  late Vehicule vehicule;
 
   setUp(() {
     utilisateur = MockUtilisateur();
     rappelVehicule = MockRappelVehicule();
+    utilisateur2 = MockUtilisateur();
+    rappelVehicule2 = MockRappelVehicule();
+
+    vehicule = Vehicule(
+      uid: 'uid',
+      nom: 'nom',
+      marque: 'marque',
+      immatriculation: 'immatriculation',
+      km: 100000,
+      photo: 'xxx',
+      notes: 'notes',
+      dateControleTechnique: DateTime(2022, 10, 24),
+      dateRevision: DateTime(2022, 10, 24),
+      dateDistribution: DateTime(2022, 10, 24),
+      utilisateur: utilisateur,
+      listRappel: [rappelVehicule],
+    );
   });
 
   test('Comparaison entre 2 objets vehicules', () {
@@ -51,21 +71,6 @@ void main() {
   });
 
   test("Instanciation d'un véhicule", () {
-    final vehicule = Vehicule(
-      uid: 'uid',
-      nom: 'nom',
-      marque: 'marque',
-      immatriculation: 'immatriculation',
-      km: 100000,
-      photo: 'xxx',
-      notes: 'notes',
-      dateControleTechnique: DateTime(2022, 10, 24),
-      dateRevision: DateTime(2022, 10, 24),
-      dateDistribution: DateTime(2022, 10, 24),
-      utilisateur: utilisateur,
-      listRappel: [rappelVehicule],
-    );
-
     expect(vehicule.uid, 'uid');
     expect(vehicule.nom, 'nom');
     expect(vehicule.marque, 'marque');
@@ -80,51 +85,276 @@ void main() {
     expect(vehicule.listRappel, [rappelVehicule]);
   });
 
-  test('copyWith', () {
-    final vehicule = Vehicule(
-      uid: 'uid',
-      nom: 'nom',
-      marque: 'marque',
-      immatriculation: 'immatriculation',
-      km: 100000,
-      photo: 'xxx',
-      notes: 'notes',
-      dateControleTechnique: DateTime(2022, 10, 24),
-      dateRevision: DateTime(2022, 10, 24),
-      dateDistribution: DateTime(2022, 10, 24),
-      utilisateur: utilisateur,
-      listRappel: [rappelVehicule],
+  test('copyWith champ : uid', () {
+    expect(
+      vehicule.copyWith(uid: 'uidModif'),
+      Vehicule(
+        uid: 'uidModif',
+        nom: 'nom',
+        marque: 'marque',
+        immatriculation: 'immatriculation',
+        km: 100000,
+        photo: 'xxx',
+        notes: 'notes',
+        dateControleTechnique: DateTime(2022, 10, 24),
+        dateRevision: DateTime(2022, 10, 24),
+        dateDistribution: DateTime(2022, 10, 24),
+        utilisateur: utilisateur,
+        listRappel: [rappelVehicule],
+      ),
     );
+  });
 
-    final utilisateur2 = MockUtilisateur();
-    final rappelVehicule2 = MockRappelVehicule();
-
-    final vehiculeCopy = vehicule.copyWith(
-      uid: 'uidmodif',
-      nom: 'nommodif',
-      marque: 'marquemodif',
-      immatriculation: 'immatriculationmodif',
-      km: 20000,
-      photo: 'xxxmodif',
-      notes: 'notesmodif',
-      dateControleTechnique: DateTime(2022, 10, 25),
-      dateRevision: DateTime(2022, 10, 25),
-      dateDistribution: DateTime(2022, 10, 25),
-      utilisateur: utilisateur2,
-      listRappel: [rappelVehicule2],
+  test('copyWith champ : nom', () {
+    expect(
+      vehicule.copyWith(nom: 'nomModif'),
+      Vehicule(
+        uid: 'uid',
+        nom: 'nomModif',
+        marque: 'marque',
+        immatriculation: 'immatriculation',
+        km: 100000,
+        photo: 'xxx',
+        notes: 'notes',
+        dateControleTechnique: DateTime(2022, 10, 24),
+        dateRevision: DateTime(2022, 10, 24),
+        dateDistribution: DateTime(2022, 10, 24),
+        utilisateur: utilisateur,
+        listRappel: [rappelVehicule],
+      ),
     );
+  });
 
-    expect(vehiculeCopy.uid, 'uidmodif');
-    expect(vehiculeCopy.nom, 'nommodif');
-    expect(vehiculeCopy.marque, 'marquemodif');
-    expect(vehiculeCopy.immatriculation, 'immatriculationmodif');
-    expect(vehiculeCopy.km, 20000);
-    expect(vehiculeCopy.photo, 'xxxmodif');
-    expect(vehiculeCopy.notes, 'notesmodif');
-    expect(vehiculeCopy.dateControleTechnique, DateTime(2022, 10, 25));
-    expect(vehiculeCopy.dateRevision, DateTime(2022, 10, 25));
-    expect(vehiculeCopy.dateDistribution, DateTime(2022, 10, 25));
-    expect(vehiculeCopy.utilisateur, utilisateur2);
-    expect(vehiculeCopy.listRappel, [rappelVehicule2]);
+  test('copyWith champ : marque', () {
+    expect(
+      vehicule.copyWith(marque: 'marqueModif'),
+      Vehicule(
+        uid: 'uid',
+        nom: 'nom',
+        marque: 'marqueModif',
+        immatriculation: 'immatriculation',
+        km: 100000,
+        photo: 'xxx',
+        notes: 'notes',
+        dateControleTechnique: DateTime(2022, 10, 24),
+        dateRevision: DateTime(2022, 10, 24),
+        dateDistribution: DateTime(2022, 10, 24),
+        utilisateur: utilisateur,
+        listRappel: [rappelVehicule],
+      ),
+    );
+  });
+
+  test('copyWith champ : immatriculation', () {
+    expect(
+      vehicule.copyWith(immatriculation: 'immatriculationModif'),
+      Vehicule(
+        uid: 'uid',
+        nom: 'nom',
+        marque: 'marque',
+        immatriculation: 'immatriculationModif',
+        km: 100000,
+        photo: 'xxx',
+        notes: 'notes',
+        dateControleTechnique: DateTime(2022, 10, 24),
+        dateRevision: DateTime(2022, 10, 24),
+        dateDistribution: DateTime(2022, 10, 24),
+        utilisateur: utilisateur,
+        listRappel: [rappelVehicule],
+      ),
+    );
+  });
+
+  test('copyWith champ : km', () {
+    expect(
+      vehicule.copyWith(km: 111111),
+      Vehicule(
+        uid: 'uid',
+        nom: 'nom',
+        marque: 'marque',
+        immatriculation: 'immatriculation',
+        km: 111111,
+        photo: 'xxx',
+        notes: 'notes',
+        dateControleTechnique: DateTime(2022, 10, 24),
+        dateRevision: DateTime(2022, 10, 24),
+        dateDistribution: DateTime(2022, 10, 24),
+        utilisateur: utilisateur,
+        listRappel: [rappelVehicule],
+      ),
+    );
+  });
+
+  test('copyWith champ : photo', () {
+    expect(
+      vehicule.copyWith(photo: 'xxxModif'),
+      Vehicule(
+        uid: 'uid',
+        nom: 'nom',
+        marque: 'marque',
+        immatriculation: 'immatriculation',
+        km: 100000,
+        photo: 'xxxModif',
+        notes: 'notes',
+        dateControleTechnique: DateTime(2022, 10, 24),
+        dateRevision: DateTime(2022, 10, 24),
+        dateDistribution: DateTime(2022, 10, 24),
+        utilisateur: utilisateur,
+        listRappel: [rappelVehicule],
+      ),
+    );
+  });
+
+  test('copyWith champ : notes', () {
+    expect(
+      vehicule.copyWith(notes: 'notesModif'),
+      Vehicule(
+        uid: 'uid',
+        nom: 'nom',
+        marque: 'marque',
+        immatriculation: 'immatriculation',
+        km: 100000,
+        photo: 'xxx',
+        notes: 'notesModif',
+        dateControleTechnique: DateTime(2022, 10, 24),
+        dateRevision: DateTime(2022, 10, 24),
+        dateDistribution: DateTime(2022, 10, 24),
+        utilisateur: utilisateur,
+        listRappel: [rappelVehicule],
+      ),
+    );
+  });
+
+  test('copyWith champ : dateControleTechnique', () {
+    expect(
+      vehicule.copyWith(dateControleTechnique: DateTime(2022, 10, 26)),
+      Vehicule(
+        uid: 'uid',
+        nom: 'nom',
+        marque: 'marque',
+        immatriculation: 'immatriculation',
+        km: 100000,
+        photo: 'xxx',
+        notes: 'notes',
+        dateControleTechnique: DateTime(2022, 10, 26),
+        dateRevision: DateTime(2022, 10, 24),
+        dateDistribution: DateTime(2022, 10, 24),
+        utilisateur: utilisateur,
+        listRappel: [rappelVehicule],
+      ),
+    );
+  });
+
+  test('copyWith champ : dateRevision', () {
+    expect(
+      vehicule.copyWith(dateRevision: DateTime(2022, 10, 26)),
+      Vehicule(
+        uid: 'uid',
+        nom: 'nom',
+        marque: 'marque',
+        immatriculation: 'immatriculation',
+        km: 100000,
+        photo: 'xxx',
+        notes: 'notes',
+        dateControleTechnique: DateTime(2022, 10, 24),
+        dateRevision: DateTime(2022, 10, 26),
+        dateDistribution: DateTime(2022, 10, 24),
+        utilisateur: utilisateur,
+        listRappel: [rappelVehicule],
+      ),
+    );
+  });
+
+  test('copyWith champ : dateDistribution', () {
+    expect(
+      vehicule.copyWith(dateDistribution: DateTime(2022, 10, 26)),
+      Vehicule(
+        uid: 'uid',
+        nom: 'nom',
+        marque: 'marque',
+        immatriculation: 'immatriculation',
+        km: 100000,
+        photo: 'xxx',
+        notes: 'notes',
+        dateControleTechnique: DateTime(2022, 10, 24),
+        dateRevision: DateTime(2022, 10, 24),
+        dateDistribution: DateTime(2022, 10, 26),
+        utilisateur: utilisateur,
+        listRappel: [rappelVehicule],
+      ),
+    );
+  });
+
+  test('copyWith champ : utilisateur', () {
+    expect(
+      vehicule.copyWith(utilisateur: utilisateur2),
+      Vehicule(
+        uid: 'uid',
+        nom: 'nom',
+        marque: 'marque',
+        immatriculation: 'immatriculation',
+        km: 100000,
+        photo: 'xxx',
+        notes: 'notes',
+        dateControleTechnique: DateTime(2022, 10, 24),
+        dateRevision: DateTime(2022, 10, 24),
+        dateDistribution: DateTime(2022, 10, 24),
+        utilisateur: utilisateur2,
+        listRappel: [rappelVehicule],
+      ),
+    );
+  });
+
+  test('copyWith champ : listRappel', () {
+    expect(
+      vehicule.copyWith(listRappel: [rappelVehicule2]),
+      Vehicule(
+        uid: 'uid',
+        nom: 'nom',
+        marque: 'marque',
+        immatriculation: 'immatriculation',
+        km: 100000,
+        photo: 'xxx',
+        notes: 'notes',
+        dateControleTechnique: DateTime(2022, 10, 24),
+        dateRevision: DateTime(2022, 10, 24),
+        dateDistribution: DateTime(2022, 10, 24),
+        utilisateur: utilisateur,
+        listRappel: [rappelVehicule2],
+      ),
+    );
+  });
+
+  test('copyWith avec tout les champs', () {
+    expect(
+      vehicule.copyWith(
+        uid: 'uidModif',
+        nom: 'nomModif',
+        marque: 'marqueModif',
+        immatriculation: 'immatriculationModif',
+        km: 20000,
+        photo: 'xxxModif',
+        notes: 'notesModif',
+        dateControleTechnique: DateTime(2022, 10, 25),
+        dateRevision: DateTime(2022, 10, 25),
+        dateDistribution: DateTime(2022, 10, 25),
+        utilisateur: utilisateur2,
+        listRappel: [rappelVehicule2],
+      ),
+      Vehicule(
+        uid: 'uidModif',
+        nom: 'nomModif',
+        marque: 'marqueModif',
+        immatriculation: 'immatriculationModif',
+        km: 20000,
+        photo: 'xxxModif',
+        notes: 'notesModif',
+        dateControleTechnique: DateTime(2022, 10, 25),
+        dateRevision: DateTime(2022, 10, 25),
+        dateDistribution: DateTime(2022, 10, 25),
+        utilisateur: utilisateur2,
+        listRappel: [rappelVehicule2],
+      ),
+    );
   });
 }

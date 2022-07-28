@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:memo_car/models/utilisateur.dart';
 
-// ignore: must_be_immutable
 class Memo extends Equatable {
   final String? uid;
   final String nom;

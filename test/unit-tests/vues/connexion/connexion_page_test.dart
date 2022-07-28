@@ -35,7 +35,7 @@ extension PumpConnexionPage on WidgetTester {
               create: (context) => appBloc,
             ),
           ],
-          child: MaterialApp(
+          child: const MaterialApp(
             home: ConnexionPage(),
           ),
         ),

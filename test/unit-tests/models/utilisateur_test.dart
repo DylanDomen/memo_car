@@ -15,11 +15,27 @@ void main() {
   late Vehicule vehicule;
   late Memo memo;
   late RendezVous rendezVous;
+  late Vehicule vehicule2;
+  late Memo memo2;
+  late RendezVous rendezVous2;
+  late Utilisateur utilisateur;
 
   setUp(() {
     vehicule = MockVehicule();
     memo = MockMemo();
     rendezVous = MockRendezVous();
+    vehicule2 = MockVehicule();
+    memo2 = MockMemo();
+    rendezVous2 = MockRendezVous();
+
+    utilisateur = Utilisateur(
+      uid: 'uid',
+      email: 'email',
+      motDePasse: 'motDePasse',
+      listVehicule: [vehicule],
+      listMemo: [memo],
+      listRendezVous: [rendezVous],
+    );
   });
 
   test('Comparaison entre 2 objets utilisateurs', () {
@@ -44,15 +60,6 @@ void main() {
   });
 
   test("Instanciation d'un utilisateur", () {
-    final utilisateur = Utilisateur(
-      uid: 'uid',
-      email: 'email',
-      motDePasse: 'motDePasse',
-      listVehicule: [vehicule],
-      listMemo: [memo],
-      listRendezVous: [rendezVous],
-    );
-
     expect(utilisateur.uid, 'uid');
     expect(utilisateur.email, 'email');
     expect(utilisateur.motDePasse, 'motDePasse');
@@ -61,34 +68,108 @@ void main() {
     expect(utilisateur.listRendezVous, [rendezVous]);
   });
 
-  test('copyWith', () {
-    final utilisateur = Utilisateur(
-      uid: 'uid',
-      email: 'email',
-      motDePasse: 'motDePasse',
-      listVehicule: [vehicule],
-      listMemo: [memo],
-      listRendezVous: [rendezVous],
+  test('copyWith champ : uid', () {
+    expect(
+      utilisateur.copyWith(uid: 'uidModif'),
+      Utilisateur(
+        uid: 'uidModif',
+        email: 'email',
+        motDePasse: 'motDePasse',
+        listVehicule: [vehicule],
+        listMemo: [memo],
+        listRendezVous: [rendezVous],
+      ),
     );
+  });
 
-    final vehicule2 = MockVehicule();
-    final memo2 = MockMemo();
-    final rendezVous2 = MockRendezVous();
-
-    final utilisateurCopy = utilisateur.copyWith(
-      uid: 'uidmodif',
-      email: 'emailmodif',
-      motDePasse: 'motDePassemodif',
-      listVehicule: [vehicule2],
-      listMemo: [memo2],
-      listRendezVous: [rendezVous2],
+  test('copyWith champ : email', () {
+    expect(
+      utilisateur.copyWith(email: 'emailModif'),
+      Utilisateur(
+        uid: 'uid',
+        email: 'emailModif',
+        motDePasse: 'motDePasse',
+        listVehicule: [vehicule],
+        listMemo: [memo],
+        listRendezVous: [rendezVous],
+      ),
     );
+  });
 
-    expect(utilisateurCopy.uid, 'uidmodif');
-    expect(utilisateurCopy.email, 'emailmodif');
-    expect(utilisateurCopy.motDePasse, 'motDePassemodif');
-    expect(utilisateurCopy.listVehicule, [vehicule2]);
-    expect(utilisateurCopy.listMemo, [memo2]);
-    expect(utilisateurCopy.listRendezVous, [rendezVous2]);
+  test('copyWith champ : motDePasse', () {
+    expect(
+      utilisateur.copyWith(motDePasse: 'motDePasseModif'),
+      Utilisateur(
+        uid: 'uid',
+        email: 'email',
+        motDePasse: 'motDePasseModif',
+        listVehicule: [vehicule],
+        listMemo: [memo],
+        listRendezVous: [rendezVous],
+      ),
+    );
+  });
+
+  test('copyWith champ : listVehicule', () {
+    expect(
+      utilisateur.copyWith(listVehicule: [vehicule2]),
+      Utilisateur(
+        uid: 'uid',
+        email: 'email',
+        motDePasse: 'motDePasse',
+        listVehicule: [vehicule2],
+        listMemo: [memo],
+        listRendezVous: [rendezVous],
+      ),
+    );
+  });
+
+  test('copyWith champ : listMemo', () {
+    expect(
+      utilisateur.copyWith(listMemo: [memo2]),
+      Utilisateur(
+        uid: 'uid',
+        email: 'email',
+        motDePasse: 'motDePasse',
+        listVehicule: [vehicule],
+        listMemo: [memo2],
+        listRendezVous: [rendezVous],
+      ),
+    );
+  });
+
+  test('copyWith champ : listRendezVous', () {
+    expect(
+      utilisateur.copyWith(listRendezVous: [rendezVous2]),
+      Utilisateur(
+        uid: 'uid',
+        email: 'email',
+        motDePasse: 'motDePasse',
+        listVehicule: [vehicule],
+        listMemo: [memo],
+        listRendezVous: [rendezVous2],
+      ),
+    );
+  });
+
+  test('copyWith avec tout les champs', () {
+    expect(
+      utilisateur.copyWith(
+        uid: 'uidModif',
+        email: 'emailModif',
+        motDePasse: 'motDePasseModif',
+        listVehicule: [vehicule2],
+        listMemo: [memo2],
+        listRendezVous: [rendezVous2],
+      ),
+      Utilisateur(
+        uid: 'uidModif',
+        email: 'emailModif',
+        motDePasse: 'motDePasseModif',
+        listVehicule: [vehicule2],
+        listMemo: [memo2],
+        listRendezVous: [rendezVous2],
+      ),
+    );
   });
 }

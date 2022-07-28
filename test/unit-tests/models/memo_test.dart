@@ -7,9 +7,20 @@ class MockUtilisateur extends Mock implements Utilisateur {}
 
 void main() {
   late Utilisateur utilisateur;
+  late Utilisateur utilisateur2;
+  late Memo memo;
 
   setUp(() {
     utilisateur = MockUtilisateur();
+    utilisateur2 = MockUtilisateur();
+
+    memo = Memo(
+      uid: 'uid',
+      nom: 'nom',
+      notes: 'notes',
+      photos: const ['XXX'],
+      utilisateur: utilisateur,
+    );
   });
 
   test('Comparaison entre 2 objets mémo', () {
@@ -32,14 +43,6 @@ void main() {
   });
 
   test("Instanciation d'un mémo", () {
-    final memo = Memo(
-      uid: 'uid',
-      nom: 'nom',
-      notes: 'notes',
-      photos: const ['XXX'],
-      utilisateur: utilisateur,
-    );
-
     expect(memo.uid, 'uid');
     expect(memo.nom, 'nom');
     expect(memo.notes, 'notes');
@@ -47,29 +50,87 @@ void main() {
     expect(memo.utilisateur, utilisateur);
   });
 
-  test('copyWith', () {
-    final memo = Memo(
-      uid: 'uid',
-      nom: 'nom',
-      notes: 'notes',
-      photos: const [],
-      utilisateur: utilisateur,
+  test('copyWith champ : uid', () {
+    expect(
+      memo.copyWith(uid: 'uidModif'),
+      Memo(
+        uid: 'uidModif',
+        nom: 'nom',
+        notes: 'notes',
+        photos: const ['XXX'],
+        utilisateur: utilisateur,
+      ),
     );
+  });
 
-    final utilisateur2 = MockUtilisateur();
-
-    final memoCopy = memo.copyWith(
-      uid: 'uidModif',
-      nom: 'nomModif',
-      notes: 'notesModif',
-      photos: ['modif'],
-      utilisateur: utilisateur2,
+  test('copyWith champ : nom', () {
+    expect(
+      memo.copyWith(nom: 'nomModif'),
+      Memo(
+        uid: 'uid',
+        nom: 'nomModif',
+        notes: 'notes',
+        photos: const ['XXX'],
+        utilisateur: utilisateur,
+      ),
     );
+  });
 
-    expect(memoCopy.uid, 'uidModif');
-    expect(memoCopy.nom, 'nomModif');
-    expect(memoCopy.notes, 'notesModif');
-    expect(memoCopy.photos, ['modif']);
-    expect(memoCopy.utilisateur, utilisateur2);
+  test('copyWith champ : notes', () {
+    expect(
+      memo.copyWith(notes: 'notesModif'),
+      Memo(
+        uid: 'uid',
+        nom: 'nom',
+        notes: 'notesModif',
+        photos: const ['XXX'],
+        utilisateur: utilisateur,
+      ),
+    );
+  });
+
+  test('copyWith champ : photos', () {
+    expect(
+      memo.copyWith(photos: ['XXXModif']),
+      Memo(
+        uid: 'uid',
+        nom: 'nom',
+        notes: 'notes',
+        photos: const ['XXXModif'],
+        utilisateur: utilisateur,
+      ),
+    );
+  });
+
+  test('copyWith champ : utilisateur', () {
+    expect(
+      memo.copyWith(utilisateur: utilisateur2),
+      Memo(
+        uid: 'uid',
+        nom: 'nom',
+        notes: 'notes',
+        photos: const ['XXX'],
+        utilisateur: utilisateur2,
+      ),
+    );
+  });
+
+  test('copyWith avec tout les champs', () {
+    expect(
+      memo.copyWith(
+        uid: 'uidModif',
+        nom: 'nomModif',
+        notes: 'notesModif',
+        photos: ['XXXModif'],
+        utilisateur: utilisateur2,
+      ),
+      Memo(
+        uid: 'uidModif',
+        nom: 'nomModif',
+        notes: 'notesModif',
+        photos: const ['XXXModif'],
+        utilisateur: utilisateur2,
+      ),
+    );
   });
 }

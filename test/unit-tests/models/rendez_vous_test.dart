@@ -8,9 +8,22 @@ class MockUtilisateur extends Mock implements Utilisateur {}
 
 void main() {
   late Utilisateur utilisateur;
+  late Utilisateur utilisateur2;
+  late RendezVous rendezVous;
 
   setUp(() {
     utilisateur = MockUtilisateur();
+    utilisateur2 = MockUtilisateur();
+    rendezVous = RendezVous(
+      uid: 'uid',
+      nom: 'nom',
+      lieu: 'lieu',
+      notes: 'notes',
+      date: DateTime(2022, 10, 25),
+      heure: const TimeOfDay(hour: 10, minute: 0),
+      dateRappel: DateTime(2022, 10, 24),
+      utilisateur: utilisateur,
+    );
   });
 
   test('Comparaison entre 2 objets rendez-vous', () {
@@ -39,17 +52,6 @@ void main() {
   });
 
   test("Instanciation d'un rendez-vous", () {
-    final rendezVous = RendezVous(
-      uid: 'uid',
-      nom: 'nom',
-      lieu: 'lieu',
-      notes: 'notes',
-      date: DateTime(2022, 10, 25),
-      heure: const TimeOfDay(hour: 10, minute: 0),
-      dateRappel: DateTime(2022, 10, 24),
-      utilisateur: utilisateur,
-    );
-
     expect(rendezVous.uid, 'uid');
     expect(rendezVous.nom, 'nom');
     expect(rendezVous.lieu, 'lieu');
@@ -60,38 +62,160 @@ void main() {
     expect(rendezVous.utilisateur, utilisateur);
   });
 
-  test('copyWith', () {
-    final rendezVous = RendezVous(
-      uid: 'uid',
-      nom: 'nom',
-      lieu: 'lieu',
-      notes: 'notes',
-      date: DateTime(2022, 10, 25),
-      heure: const TimeOfDay(hour: 10, minute: 0),
-      dateRappel: DateTime(2022, 10, 24),
-      utilisateur: utilisateur,
+  test('copyWith champ : uid', () {
+    expect(
+      rendezVous.copyWith(uid: 'uidModif'),
+      RendezVous(
+        uid: 'uidModif',
+        nom: 'nom',
+        lieu: 'lieu',
+        notes: 'notes',
+        date: DateTime(2022, 10, 25),
+        heure: const TimeOfDay(hour: 10, minute: 0),
+        dateRappel: DateTime(2022, 10, 24),
+        utilisateur: utilisateur,
+      ),
     );
+  });
 
-    final Utilisateur utilisateur2 = MockUtilisateur();
-
-    final rendezVousCopy = rendezVous.copyWith(
-      uid: 'uidmodif',
-      nom: 'nommodif',
-      lieu: 'lieumodif',
-      notes: 'notesmodif',
-      date: DateTime(2022, 10, 26),
-      heure: const TimeOfDay(hour: 12, minute: 0),
-      dateRappel: DateTime(2022, 10, 25),
-      utilisateur: utilisateur2,
+  test('copyWith champ : nom', () {
+    expect(
+      rendezVous.copyWith(nom: 'nomModif'),
+      RendezVous(
+        uid: 'uid',
+        nom: 'nomModif',
+        lieu: 'lieu',
+        notes: 'notes',
+        date: DateTime(2022, 10, 25),
+        heure: const TimeOfDay(hour: 10, minute: 0),
+        dateRappel: DateTime(2022, 10, 24),
+        utilisateur: utilisateur,
+      ),
     );
+  });
 
-    expect(rendezVousCopy.uid, 'uidmodif');
-    expect(rendezVousCopy.nom, 'nommodif');
-    expect(rendezVousCopy.lieu, 'lieumodif');
-    expect(rendezVousCopy.notes, 'notesmodif');
-    expect(rendezVousCopy.date, DateTime(2022, 10, 26));
-    expect(rendezVousCopy.heure, const TimeOfDay(hour: 12, minute: 0));
-    expect(rendezVousCopy.dateRappel, DateTime(2022, 10, 25));
-    expect(rendezVousCopy.utilisateur, utilisateur2);
+  test('copyWith champ : lieu', () {
+    expect(
+      rendezVous.copyWith(lieu: 'lieuModif'),
+      RendezVous(
+        uid: 'uid',
+        nom: 'nom',
+        lieu: 'lieuModif',
+        notes: 'notes',
+        date: DateTime(2022, 10, 25),
+        heure: const TimeOfDay(hour: 10, minute: 0),
+        dateRappel: DateTime(2022, 10, 24),
+        utilisateur: utilisateur,
+      ),
+    );
+  });
+
+  test('copyWith champ : notes', () {
+    expect(
+      rendezVous.copyWith(notes: 'notesModif'),
+      RendezVous(
+        uid: 'uid',
+        nom: 'nom',
+        lieu: 'lieu',
+        notes: 'notesModif',
+        date: DateTime(2022, 10, 25),
+        heure: const TimeOfDay(hour: 10, minute: 0),
+        dateRappel: DateTime(2022, 10, 24),
+        utilisateur: utilisateur,
+      ),
+    );
+  });
+
+  test('copyWith champ : date', () {
+    expect(
+      rendezVous.copyWith(date: DateTime(2022, 09, 26)),
+      RendezVous(
+        uid: 'uid',
+        nom: 'nom',
+        lieu: 'lieu',
+        notes: 'notes',
+        date: DateTime(2022, 09, 26),
+        heure: const TimeOfDay(hour: 10, minute: 0),
+        dateRappel: DateTime(2022, 10, 24),
+        utilisateur: utilisateur,
+      ),
+    );
+  });
+
+  test('copyWith champ : heure', () {
+    expect(
+      rendezVous.copyWith(
+        heure: const TimeOfDay(hour: 12, minute: 0),
+      ),
+      RendezVous(
+        uid: 'uid',
+        nom: 'nom',
+        lieu: 'lieu',
+        notes: 'notes',
+        date: DateTime(2022, 10, 25),
+        heure: const TimeOfDay(hour: 12, minute: 0),
+        dateRappel: DateTime(2022, 10, 24),
+        utilisateur: utilisateur,
+      ),
+    );
+  });
+
+  test('copyWith champ : dateRappel', () {
+    expect(
+      rendezVous.copyWith(
+        dateRappel: DateTime(2022, 09, 25),
+      ),
+      RendezVous(
+        uid: 'uid',
+        nom: 'nom',
+        lieu: 'lieu',
+        notes: 'notes',
+        date: DateTime(2022, 10, 25),
+        heure: const TimeOfDay(hour: 10, minute: 0),
+        dateRappel: DateTime(2022, 09, 25),
+        utilisateur: utilisateur,
+      ),
+    );
+  });
+
+  test('copyWith champ : utilisateur', () {
+    expect(
+      rendezVous.copyWith(utilisateur: utilisateur2),
+      RendezVous(
+        uid: 'uid',
+        nom: 'nom',
+        lieu: 'lieu',
+        notes: 'notes',
+        date: DateTime(2022, 10, 25),
+        heure: const TimeOfDay(hour: 10, minute: 0),
+        dateRappel: DateTime(2022, 10, 24),
+        utilisateur: utilisateur2,
+      ),
+    );
+  });
+
+  test('copyWith avec tout les champs', () {
+    expect(
+      rendezVous.copyWith(
+        uid: 'uidModif',
+        nom: 'nomModif',
+        lieu: 'lieuModif',
+        notes: 'notesModif',
+        date: DateTime(2022, 09, 26),
+        heure: const TimeOfDay(hour: 12, minute: 0),
+        dateRappel: DateTime(2022, 10, 25),
+        utilisateur: utilisateur2,
+      ),
+      RendezVous(
+        uid: 'uidModif',
+        nom: 'nomModif',
+        lieu: 'lieuModif',
+        notes: 'notesModif',
+        date: DateTime(2022, 09, 26),
+        heure: const TimeOfDay(hour: 12, minute: 0),
+        dateRappel: DateTime(2022, 10, 25),
+        utilisateur: utilisateur2,
+      ),
+    );
   });
 }
