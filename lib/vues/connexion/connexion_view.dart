@@ -47,7 +47,7 @@ class ConnexionView extends StatelessWidget {
             TextButton(
               key: const Key('BoutonInscription'),
               onPressed: () => appBloc.add(const GoToInscription()),
-              child: const Text("S'inscrire"),
+              child: const Text('Vous n’avez pas de compte ? Inscrivez-vous !'),
             ),
             Row(
               children: const [
