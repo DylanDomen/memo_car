@@ -27,14 +27,14 @@ class ConnexionCubit extends Cubit<ConnexionState> {
           emit(
             state.copyWith(
               status: FormzStatus.submissionFailure,
-              messsageErreur: 'Utilisateur inconnu',
+              messageErreur: 'Utilisateur inconnu',
             ),
           );
         } else if (e.code == 'wrong-password') {
           emit(
             state.copyWith(
               status: FormzStatus.submissionFailure,
-              messsageErreur: 'Mot de passe incorrect',
+              messageErreur: 'Mot de passe incorrect',
             ),
           );
         }
@@ -42,7 +42,7 @@ class ConnexionCubit extends Cubit<ConnexionState> {
         emit(
           state.copyWith(
             status: FormzStatus.submissionFailure,
-            messsageErreur: 'Erreur inconnu',
+            messageErreur: 'Erreur inconnu',
           ),
         );
       }
@@ -50,7 +50,7 @@ class ConnexionCubit extends Cubit<ConnexionState> {
       emit(
         state.copyWith(
           status: FormzStatus.submissionFailure,
-          messsageErreur: 'formulaire non valide',
+          messageErreur: 'formulaire non valide',
         ),
       );
     }

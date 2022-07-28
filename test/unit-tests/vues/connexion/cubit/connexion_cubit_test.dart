@@ -142,7 +142,7 @@ void main() {
           email: Email.dirty('mail@gmail.com'),
           motDePasse: Password.dirty(''),
           status: FormzStatus.submissionFailure,
-          messsageErreur: 'formulaire non valide',
+          messageErreur: 'formulaire non valide',
         ),
       ],
     );
@@ -191,7 +191,7 @@ void main() {
           email: Email.dirty('mail@gmail.com'),
           motDePasse: Password.dirty('motdepasse'),
           status: FormzStatus.submissionFailure,
-          messsageErreur: 'Utilisateur inconnu',
+          messageErreur: 'Utilisateur inconnu',
         ),
       ],
     );
@@ -239,7 +239,7 @@ void main() {
           email: Email.dirty('mail@gmail.com'),
           motDePasse: Password.dirty('motdepasse'),
           status: FormzStatus.submissionFailure,
-          messsageErreur: 'Mot de passe incorrect',
+          messageErreur: 'Mot de passe incorrect',
         ),
       ],
     );
@@ -288,7 +288,7 @@ void main() {
           email: Email.dirty('mail@gmail.com'),
           motDePasse: Password.dirty('motdepasse'),
           status: FormzStatus.submissionFailure,
-          messsageErreur: 'Erreur inconnu',
+          messageErreur: 'Erreur inconnu',
         ),
       ],
     );

@@ -12,13 +12,13 @@ void main() {
   test('copyWith vide', () {
     expect(const ConnexionState().copyWith(), const ConnexionState());
   });
-  test('copyWith status', () {
+  test('copyWith champ : status', () {
     expect(
       const ConnexionState().copyWith(status: FormzStatus.submissionInProgress),
       const ConnexionState(status: FormzStatus.submissionInProgress),
     );
   });
-  test('copyWith email', () {
+  test('copyWith champ : email', () {
     expect(
       const ConnexionState().copyWith(email: const Email.dirty('emailTest')),
       const ConnexionState(
@@ -26,17 +26,17 @@ void main() {
       ),
     );
   });
-  test('copyWith mot de passe', () {
+  test('copyWith champ : mot de passe', () {
     expect(
       const ConnexionState()
           .copyWith(motDePasse: const Password.dirty('password')),
       const ConnexionState(motDePasse: Password.dirty('password')),
     );
   });
-  test('copyWith messageErreur', () {
+  test('copyWith champ : messageErreur', () {
     expect(
-      const ConnexionState().copyWith(messsageErreur: 'erreur'),
-      const ConnexionState(messsageErreur: 'erreur'),
+      const ConnexionState().copyWith(messageErreur: 'erreur'),
+      const ConnexionState(messageErreur: 'erreur'),
     );
   });
 }

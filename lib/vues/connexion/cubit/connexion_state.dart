@@ -1,26 +1,26 @@
 part of 'connexion_cubit.dart';
 
 class ConnexionState extends Equatable {
-  final String? messsageErreur;
+  final String? messageErreur;
   final FormzStatus status;
   final Email email;
   final Password motDePasse;
 
   const ConnexionState({
-    this.messsageErreur,
+    this.messageErreur,
     this.status = FormzStatus.pure,
     this.email = const Email.pure(),
     this.motDePasse = const Password.pure(),
   });
 
   ConnexionState copyWith({
-    String? messsageErreur,
+    String? messageErreur,
     FormzStatus? status,
     Email? email,
     Password? motDePasse,
   }) {
     return ConnexionState(
-      messsageErreur: messsageErreur ?? this.messsageErreur,
+      messageErreur: messageErreur ?? this.messageErreur,
       status: status ?? this.status,
       email: email ?? this.email,
       motDePasse: motDePasse ?? this.motDePasse,
@@ -29,7 +29,7 @@ class ConnexionState extends Equatable {
 
   @override
   List<Object?> get props => [
-        messsageErreur,
+        messageErreur,
         status,
         email,
         motDePasse,
