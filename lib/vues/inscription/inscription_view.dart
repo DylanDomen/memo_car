@@ -35,6 +35,15 @@ class InscriptionView extends StatelessWidget {
               ),
               onChangedMethod: (motDePasse) => null,
             ),
+            CustomTextField(
+              key: const Key('TextFieldConfirmerMotDePasseVueInscription'),
+              labelText: 'Confirmez votre mot de passe',
+              labelStyle: const TextStyle(
+                color: Colors.blueAccent,
+                fontWeight: FontWeight.bold,
+              ),
+              onChangedMethod: (motDePasseConfirme) => null,
+            ),
             ElevatedButton(
               key: const Key('BoutonInscription'),
               onPressed: () => null,
