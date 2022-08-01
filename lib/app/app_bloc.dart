@@ -10,6 +10,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   AppBloc() : super(AppState()) {
     on<GoToConnexion>(_goToPageConnexion);
     on<GoToInscription>(_goToPageInscription);
+    on<GoToVehicule>(_goToPageVehicule);
   }
 
   FutureOr<void> _goToPageConnexion(
@@ -24,5 +25,9 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     Emitter<AppState> emit,
   ) {
     emit(state.copyWith(step: AppStep.inscription));
+  }
+
+  FutureOr<void> _goToPageVehicule(GoToVehicule event, Emitter<AppState> emit) {
+    emit(state.copyWith(step: AppStep.vehicule));
   }
 }

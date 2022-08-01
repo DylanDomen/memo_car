@@ -17,3 +17,10 @@ class GoToConnexion extends AppEvent {
   @override
   List<Object?> get props => [];
 }
+
+class GoToVehicule extends AppEvent {
+  const GoToVehicule();
+
+  @override
+  List<Object?> get props => [];
+}

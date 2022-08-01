@@ -3,6 +3,7 @@ part of 'app_bloc.dart';
 enum AppStep {
   inscription,
   connexion,
+  vehicule,
 }
 
 // ignore: must_be_immutable
