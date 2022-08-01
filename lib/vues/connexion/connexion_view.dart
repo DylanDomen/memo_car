@@ -31,6 +31,7 @@ class ConnexionView extends StatelessWidget {
             ),
             CustomTextField(
               key: const Key('TextFieldMotDePasse'),
+              obscureText: true,
               labelText: 'Mot de passe',
               labelStyle: const TextStyle(
                 color: Colors.blueAccent,

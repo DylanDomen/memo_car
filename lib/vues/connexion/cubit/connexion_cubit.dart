@@ -50,7 +50,7 @@ class ConnexionCubit extends Cubit<ConnexionState> {
       emit(
         state.copyWith(
           status: FormzStatus.submissionFailure,
-          messageErreur: 'formulaire non valide',
+          messageErreur: 'Formulaire non valide',
         ),
       );
     }

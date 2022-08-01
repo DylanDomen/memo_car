@@ -142,7 +142,7 @@ void main() {
           email: Email.dirty('mail@gmail.com'),
           motDePasse: Password.dirty(''),
           status: FormzStatus.submissionFailure,
-          messageErreur: 'formulaire non valide',
+          messageErreur: 'Formulaire non valide',
         ),
       ],
     );

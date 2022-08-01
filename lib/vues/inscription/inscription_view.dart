@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:memo_car/app/app_bloc.dart';
 import 'package:memo_car/shared/widgets/custom_text_field.dart';
+import 'package:memo_car/vues/inscription/cubit/inscription_cubit.dart';
 
 class InscriptionView extends StatelessWidget {
   const InscriptionView({super.key});
@@ -10,6 +11,7 @@ class InscriptionView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appBloc = context.watch<AppBloc>();
+    final inscriptionCubit = context.watch<InscriptionCubit>();
 
     return SafeArea(
       child: Container(
@@ -24,29 +26,36 @@ class InscriptionView extends StatelessWidget {
                 color: Colors.blueAccent,
                 fontWeight: FontWeight.bold,
               ),
-              onChangedMethod: (email) => null,
+              onChangedMethod: (email) =>
+                  inscriptionCubit.emailModifier(emailtexte: email),
             ),
             CustomTextField(
               key: const Key('TextFieldMotDePasseVueInscription'),
+              obscureText: true,
               labelText: 'Mot de passe',
               labelStyle: const TextStyle(
                 color: Colors.blueAccent,
                 fontWeight: FontWeight.bold,
               ),
-              onChangedMethod: (motDePasse) => null,
+              onChangedMethod: (motDePasse) => inscriptionCubit
+                  .motDePasseModifier(motDePasseTexte: motDePasse),
             ),
             CustomTextField(
               key: const Key('TextFieldConfirmerMotDePasseVueInscription'),
+              obscureText: true,
               labelText: 'Confirmez votre mot de passe',
               labelStyle: const TextStyle(
                 color: Colors.blueAccent,
                 fontWeight: FontWeight.bold,
               ),
-              onChangedMethod: (motDePasseConfirme) => null,
+              onChangedMethod: (motDePasseConfirme) =>
+                  inscriptionCubit.motDePasseConfirmeModifier(
+                motDePasseConfirmeTexte: motDePasseConfirme,
+              ),
             ),
             ElevatedButton(
               key: const Key('BoutonInscription'),
-              onPressed: () => null,
+              onPressed: inscriptionCubit.submit,
               child: const Text("S'inscrire"),
             ),
             TextButton(

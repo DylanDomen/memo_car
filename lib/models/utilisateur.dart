@@ -7,7 +7,6 @@ import 'package:memo_car/models/vehicule.dart';
 class Utilisateur extends Equatable {
   final String? uid;
   final String email;
-  final String? motDePasse;
   final List<Vehicule> listVehicule;
   final List<Memo> listMemo;
   final List<RendezVous> listRendezVous;
@@ -15,7 +14,6 @@ class Utilisateur extends Equatable {
   const Utilisateur({
     this.uid,
     required this.email,
-    this.motDePasse,
     required this.listVehicule,
     required this.listMemo,
     required this.listRendezVous,
@@ -32,7 +30,6 @@ class Utilisateur extends Equatable {
     return Utilisateur(
       uid: uid ?? this.uid,
       email: email ?? this.email,
-      motDePasse: motDePasse ?? this.motDePasse,
       listVehicule: listVehicule ?? this.listVehicule,
       listMemo: listMemo ?? this.listMemo,
       listRendezVous: listRendezVous ?? this.listRendezVous,
@@ -43,7 +40,6 @@ class Utilisateur extends Equatable {
   List<Object?> get props => [
         uid,
         email,
-        motDePasse,
         listVehicule,
         listMemo,
         listRendezVous,

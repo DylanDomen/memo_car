@@ -31,7 +31,6 @@ void main() {
     utilisateur = Utilisateur(
       uid: 'uid',
       email: 'email',
-      motDePasse: 'motDePasse',
       listVehicule: [vehicule],
       listMemo: [memo],
       listRendezVous: [rendezVous],
@@ -43,7 +42,6 @@ void main() {
       Utilisateur(
         uid: 'uid',
         email: 'email',
-        motDePasse: 'motDePasse',
         listVehicule: [vehicule],
         listMemo: [memo],
         listRendezVous: [rendezVous],
@@ -51,7 +49,6 @@ void main() {
       Utilisateur(
         uid: 'uid',
         email: 'email',
-        motDePasse: 'motDePasse',
         listVehicule: [vehicule],
         listMemo: [memo],
         listRendezVous: [rendezVous],
@@ -62,7 +59,6 @@ void main() {
   test("Instanciation d'un utilisateur", () {
     expect(utilisateur.uid, 'uid');
     expect(utilisateur.email, 'email');
-    expect(utilisateur.motDePasse, 'motDePasse');
     expect(utilisateur.listVehicule, [vehicule]);
     expect(utilisateur.listMemo, [memo]);
     expect(utilisateur.listRendezVous, [rendezVous]);
@@ -74,7 +70,6 @@ void main() {
       Utilisateur(
         uid: 'uidModif',
         email: 'email',
-        motDePasse: 'motDePasse',
         listVehicule: [vehicule],
         listMemo: [memo],
         listRendezVous: [rendezVous],
@@ -88,7 +83,6 @@ void main() {
       Utilisateur(
         uid: 'uid',
         email: 'emailModif',
-        motDePasse: 'motDePasse',
         listVehicule: [vehicule],
         listMemo: [memo],
         listRendezVous: [rendezVous],
@@ -102,7 +96,6 @@ void main() {
       Utilisateur(
         uid: 'uid',
         email: 'email',
-        motDePasse: 'motDePasseModif',
         listVehicule: [vehicule],
         listMemo: [memo],
         listRendezVous: [rendezVous],
@@ -116,7 +109,6 @@ void main() {
       Utilisateur(
         uid: 'uid',
         email: 'email',
-        motDePasse: 'motDePasse',
         listVehicule: [vehicule2],
         listMemo: [memo],
         listRendezVous: [rendezVous],
@@ -130,7 +122,6 @@ void main() {
       Utilisateur(
         uid: 'uid',
         email: 'email',
-        motDePasse: 'motDePasse',
         listVehicule: [vehicule],
         listMemo: [memo2],
         listRendezVous: [rendezVous],
@@ -144,7 +135,6 @@ void main() {
       Utilisateur(
         uid: 'uid',
         email: 'email',
-        motDePasse: 'motDePasse',
         listVehicule: [vehicule],
         listMemo: [memo],
         listRendezVous: [rendezVous2],
@@ -157,7 +147,6 @@ void main() {
       utilisateur.copyWith(
         uid: 'uidModif',
         email: 'emailModif',
-        motDePasse: 'motDePasseModif',
         listVehicule: [vehicule2],
         listMemo: [memo2],
         listRendezVous: [rendezVous2],
@@ -165,7 +154,6 @@ void main() {
       Utilisateur(
         uid: 'uidModif',
         email: 'emailModif',
-        motDePasse: 'motDePasseModif',
         listVehicule: [vehicule2],
         listMemo: [memo2],
         listRendezVous: [rendezVous2],
