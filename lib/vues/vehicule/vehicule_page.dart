@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:memo_car/vues/vehicule/vehicule_view.dart';
 
 class VehiculePage extends StatelessWidget {
-  static Page page() => const MaterialPage<void>(child: VehiculePage());
+  static Page<dynamic> page() => const MaterialPage<void>(
+        child: VehiculePage(),
+      );
   const VehiculePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: VehiculeView(),
     );
   }

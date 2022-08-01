@@ -5,7 +5,8 @@ import 'package:memo_car/vues/inscription/cubit/inscription_cubit.dart';
 import 'package:memo_car/vues/inscription/inscription_view.dart';
 
 class InscriptionPage extends StatelessWidget {
-  static Page page() => const MaterialPage<void>(child: InscriptionPage());
+  static Page<dynamic> page() =>
+      const MaterialPage<void>(child: InscriptionPage());
   const InscriptionPage({super.key});
 
   @override

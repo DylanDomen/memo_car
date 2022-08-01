@@ -5,6 +5,8 @@ import 'package:formz/formz.dart';
 import 'package:memo_car/app/app_bloc.dart';
 import 'package:memo_car/shared/widgets/custom_text_field.dart';
 import 'package:memo_car/vues/connexion/cubit/connexion_cubit.dart';
+import 'package:memo_car/vues/connexion/models/email.dart';
+import 'package:memo_car/vues/connexion/models/mot_de_passe.dart';
 
 class ConnexionView extends StatelessWidget {
   const ConnexionView({super.key});
@@ -32,7 +34,9 @@ class ConnexionView extends StatelessWidget {
                 ),
                 onChangedMethod: (email) =>
                     connexionCubit.emailModifier(emailtexte: email),
-                error: connexionCubit.state.messageErreur,
+                error: connexionCubit.state.email.invalid
+                    ? connexionCubit.state.email.error?.texte
+                    : null,
               ),
               CustomTextField(
                 key: const Key('TextFieldMotDePasse'),
@@ -44,7 +48,9 @@ class ConnexionView extends StatelessWidget {
                 ),
                 onChangedMethod: (motDePasse) => connexionCubit
                     .motDePasseModifier(motDePasseTexte: motDePasse),
-                error: connexionCubit.state.messageErreur,
+                error: connexionCubit.state.motDePasse.invalid
+                    ? connexionCubit.state.motDePasse.error?.texte
+                    : null,
               ),
               ElevatedButton(
                 key: const Key('BoutonConnexion'),

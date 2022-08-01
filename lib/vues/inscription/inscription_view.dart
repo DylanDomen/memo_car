@@ -4,6 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:formz/formz.dart';
 import 'package:memo_car/app/app_bloc.dart';
 import 'package:memo_car/shared/widgets/custom_text_field.dart';
+import 'package:memo_car/vues/connexion/models/email.dart';
+import 'package:memo_car/vues/connexion/models/mot_de_passe.dart';
+import 'package:memo_car/vues/connexion/models/mot_de_passe_confirme.dart';
 import 'package:memo_car/vues/inscription/cubit/inscription_cubit.dart';
 
 class InscriptionView extends StatelessWidget {
@@ -32,7 +35,9 @@ class InscriptionView extends StatelessWidget {
                 ),
                 onChangedMethod: (email) =>
                     inscriptionCubit.emailModifier(emailtexte: email),
-                error: inscriptionCubit.state.messageErreur,
+                error: inscriptionCubit.state.email.invalid
+                    ? inscriptionCubit.state.email.error?.texte
+                    : null,
               ),
               CustomTextField(
                 key: const Key('TextFieldMotDePasseVueInscription'),
@@ -44,7 +49,9 @@ class InscriptionView extends StatelessWidget {
                 ),
                 onChangedMethod: (motDePasse) => inscriptionCubit
                     .motDePasseModifier(motDePasseTexte: motDePasse),
-                error: inscriptionCubit.state.messageErreur,
+                error: inscriptionCubit.state.motDePasse.invalid
+                    ? inscriptionCubit.state.motDePasse.error?.texte
+                    : null,
               ),
               CustomTextField(
                 key: const Key('TextFieldConfirmerMotDePasseVueInscription'),
@@ -58,7 +65,9 @@ class InscriptionView extends StatelessWidget {
                     inscriptionCubit.motDePasseConfirmeModifier(
                   motDePasseConfirmeTexte: motDePasseConfirme,
                 ),
-                error: inscriptionCubit.state.messageErreur,
+                error: inscriptionCubit.state.motDePasseConfirme.invalid
+                    ? inscriptionCubit.state.motDePasseConfirme.error?.texte
+                    : null,
               ),
               ElevatedButton(
                 key: const Key('BoutonInscription'),

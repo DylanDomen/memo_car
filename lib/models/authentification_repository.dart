@@ -37,7 +37,7 @@ class AuthentificationRepository {
     );
     final CollectionReference utilisateurs =
         FirebaseFirestore.instance.collection('utilisateurs');
-    await utilisateurs.add({
+    await utilisateurs.doc(uidUtilisateur).set({
       'uid': utilisateur.uid,
       'email': utilisateur.email,
       'listVehicule': utilisateur.listVehicule,
