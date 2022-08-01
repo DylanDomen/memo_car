@@ -10,6 +10,7 @@ dependencies:
   bloc: ^8.0.3
   camera: ^0.10.0
   cloud_firestore: ^3.4.2
+  dartdoc: ^6.0.0
   equatable: ^2.0.3
   firebase_auth: ^3.6.1
   firebase_auth_mocks: ^0.8.5+1
