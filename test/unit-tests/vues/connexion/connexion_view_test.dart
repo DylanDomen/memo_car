@@ -41,6 +41,9 @@ void main() {
     connexionCubit = MockConnexionCubit();
     appBloc = MockAppBloc();
     when(
+      () => connexionCubit.state,
+    ).thenAnswer((invocation) => const ConnexionState());
+    when(
       () => connexionCubit.submit(),
     ).thenAnswer((invocation) => Future.value());
   });
